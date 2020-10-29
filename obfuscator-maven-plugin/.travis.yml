@@ -1,0 +1,23 @@
+language: java
+# Enable container-based infrastructure
+# see http://docs.travis-ci.com/user/workers/container-based-infrastructure/
+sudo: false
+jdk:
+  - openjdk8
+  - openjdk9
+  - openjdk10
+  - openjdk11
+cache:
+  directories:
+  - $HOME/.m2/repository
+# Just skip installation step
+# cause everything is done
+# in script step.
+env:
+  - MAVEN_VERSION=3.6.0
+
+install:
+  - "mvn -N io.takari:maven:wrapper -Dmaven=${MAVEN_VERSION}"
+
+script:
+  - "./mvnw --show-version --errors --batch-mode clean verify"

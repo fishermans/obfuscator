@@ -28,6 +28,7 @@
     <modules>
         <module>obfuscator-annotations</module>
         <module>obfuscator-core</module>
+        <module>obfuscator-maven-plugin</module>
     </modules>
 
 
